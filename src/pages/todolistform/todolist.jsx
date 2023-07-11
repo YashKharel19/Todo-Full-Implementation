@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import './todolist.css'
 
 function TodoList() {
   const [todos, setTodos] = useState([]);
@@ -13,15 +14,28 @@ const fetchData = async()=>{
   }, []);
 
   return (
-    <div>
+    <div className="todo-list-container">
       <h1>Todos</h1>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <h3>{todo.title}</h3>
-          <p>Completed: {todo.completed ? 'Yes' : 'No'}</p>
-          <a href={`/${todo.id}`}>View Details</a>
-        </div>
-      ))}
+      <table className="todo-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Completed</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {todos.map(todo => (
+            <tr key={todo.id}>
+              <td>{todo.title}</td>
+              <td>{todo.completed ? 'Yes' : 'No'}</td>
+              <td>
+                <a href={`/${todo.id}`}>View Details</a>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
