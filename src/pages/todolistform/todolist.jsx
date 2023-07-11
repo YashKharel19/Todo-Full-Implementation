@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import VisibilityIcon from '@mui/icons-material/Visibility';
+import { CheckCircle, RemoveCircle } from '@mui/icons-material';
 import './todolist.css'
 
 function TodoList() {
@@ -30,6 +31,7 @@ function TodoList() {
   const handlePreviousPage = () => {
     setCurrentPage(prevPage => prevPage - 1);
   };
+  const isLastPage = currentPage === Math.ceil(todos.length / todosPerPage);
 
 
 
@@ -48,7 +50,13 @@ function TodoList() {
           {currentTodos.map(todo => (
             <tr key={todo.id}>
               <td>{todo.title}</td>
-              <td>{todo.completed ? 'Yes' : 'No'}</td>
+              <td>
+                {todo.completed ? (
+                  <CheckCircle style={{ color: 'green' }} />
+                ) : (
+                  <RemoveCircle style={{ color: 'red' }} />
+                )}
+              </td>
               <td>
                 <Link to={`/${todo.id}`}>
                   <IconButton>
@@ -71,7 +79,7 @@ function TodoList() {
         <span className="page-count">
           Page {currentPage} of {Math.ceil(todos.length / todosPerPage)}
         </span>
-        {currentTodos.length === todosPerPage && (
+        {!isLastPage && currentTodos.length === todosPerPage && (
           <button className="pagination-button" onClick={handleNextPage}>
             Next
           </button>
