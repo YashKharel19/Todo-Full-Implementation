@@ -1,6 +1,8 @@
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import { IconButton } from '@mui/material';
+import VisibilityIcon from '@mui/icons-material/Visibility';
 import './todolist.css'
 
 function TodoList() {
@@ -48,15 +50,19 @@ function TodoList() {
               <td>{todo.title}</td>
               <td>{todo.completed ? 'Yes' : 'No'}</td>
               <td>
-                <Link to={`/${todo.id}`}>View Details</Link>
+                <Link to={`/${todo.id}`}>
+                  <IconButton>
+                    <VisibilityIcon />
+                  </IconButton>
+                </Link>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-     {/* Pagination */}
-     <div className="pagination">
+      {/* Pagination */}
+      <div className="pagination">
         {currentPage > 1 && (
           <button className="pagination-button" onClick={handlePreviousPage}>
             Previous
