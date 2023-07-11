@@ -38,6 +38,11 @@ function TodoList() {
   return (
     <div className="todo-list-container">
       <h1>Todos</h1>
+      <div className="todo-list-actions">
+        <Link to="/add">
+          <button className="add-todo-button">Add New Todo</button>
+        </Link>
+      </div>
       <table className="todo-table">
         <thead>
           <tr>
