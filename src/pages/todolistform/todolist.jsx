@@ -9,7 +9,7 @@ import './todolist.css'
 function TodoList() {
   const [todos, setTodos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [todosPerPage] = useState(20);
+  const [todosPerPage] = useState(8);
   const fetchData = async () => {
     const { data } = await axios('https://jsonplaceholder.typicode.com/todos')
     console.log(data);
