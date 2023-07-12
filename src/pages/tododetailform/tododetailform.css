@@ -1,8 +1,40 @@
-.todo-card {
+.todo-details-container {
+    padding: 20px;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #2196f3;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .todo-details-header {
+    color: #fff;
+  }
+  
+  .buttons-container {
+    display: flex;
+  }
+  
+  .add-todo-button,
+  .todo-list-button {
+    background-color: #4caf50;
+    border: none;
+    color: #fff;
+    padding: 8px 16px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .todo-card {
     background-color: #fff;
     border-radius: 8px;
     padding: 16px;
-    width: 300px;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
   
@@ -12,13 +44,12 @@
     gap: 8px;
   }
   
-  .todo-id {
-    font-size: 14px;
-    color: #888;
-  }
-  
   .todo-title {
     font-size: 18px;
+  }
+  
+  .todo-id {
+    color: #888;
   }
   
   .status-container {
@@ -28,7 +59,7 @@
   }
   
   .status-label {
-    font-size: 16px;
+    font-weight: bold;
   }
   
   .status-icon {
