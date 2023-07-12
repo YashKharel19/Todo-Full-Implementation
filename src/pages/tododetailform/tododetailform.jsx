@@ -24,10 +24,10 @@ function TodoDetails() {
       <div className="todo-card">
         <h1>Todo Details</h1>
         <div className="card-content">
-          <h3 className="todo-id">Todo ID: {apiData.id}</h3>
-          <h2 className="todo-title">{apiData.title}</h2>
+          <h3 className="todo-title">Todo ID: <span className="todo-id">{apiData.id}</span></h3>
+          <h2 className="todo-title">Task Name:<span className="todo-id"> {apiData.title}</span></h2>
           <div className="status-container">
-            <span className="status-label">Status:</span>
+            <strong className="status-label">Status:</strong>
             {apiData.completed ? (
               <CheckCircle className="status-icon completed" />
             ) : (
