@@ -20,19 +20,20 @@ function TodoDetails() {
 
   return (
     <div className="todo-details-container">
-      <h1>Todo Details</h1>
+
       <div className="todo-card">
-        <div className="todo-header">
+        <h1>Todo Details</h1>
+        <div className="card-content">
           <h3 className="todo-id">Todo ID: {apiData.id}</h3>
           <h2 className="todo-title">{apiData.title}</h2>
-
-          <h3 className="todo-id">Status:
+          <div className="status-container">
+            <span className="status-label">Status:</span>
             {apiData.completed ? (
               <CheckCircle className="status-icon completed" />
             ) : (
               <RemoveCircle className="status-icon not-completed" />
             )}
-          </h3>
+          </div>
         </div>
       </div>
     </div>
