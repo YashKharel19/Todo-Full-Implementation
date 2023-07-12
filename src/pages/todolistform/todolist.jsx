@@ -12,7 +12,6 @@ function TodoList() {
   const [todosPerPage] = useState(8);
   const fetchData = async () => {
     const { data } = await axios('https://jsonplaceholder.typicode.com/todos')
-    console.log(data);
     setTodos(data);
   }
   useEffect(() => {

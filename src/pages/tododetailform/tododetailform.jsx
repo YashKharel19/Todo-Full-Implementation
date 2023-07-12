@@ -1,17 +1,40 @@
+import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
+import './tododetailform.css'
+import axios from 'axios';
+import { CheckCircle, RemoveCircle } from '@mui/icons-material';
+
 function TodoDetails() {
+  const [apiData, setApiData] = useState('')
   const { id } = useParams();
 
-  // Fetch the specific todo details using the `id` parameter
-  // ...
+  const fetchData = async () => {
+    const { data } = await axios(`https://jsonplaceholder.typicode.com/todos/${id}`)
+    console.log(data)
+    setApiData(data)
+  }
+  useEffect(() => {
+    fetchData()
+  }, []);
 
   return (
-    <div>
+    <div className="todo-details-container">
       <h1>Todo Details</h1>
-      <h3>Todo ID: {id}</h3>
-      {/* Display the details of the specific todo */}
-      {/* ... */}
+      <div className="todo-card">
+        <div className="todo-header">
+          <h3 className="todo-id">Todo ID: {apiData.id}</h3>
+          <h2 className="todo-title">{apiData.title}</h2>
+
+          <h3 className="todo-id">Status:
+            {apiData.completed ? (
+              <CheckCircle className="status-icon completed" />
+            ) : (
+              <RemoveCircle className="status-icon not-completed" />
+            )}
+          </h3>
+        </div>
+      </div>
     </div>
   );
 }
