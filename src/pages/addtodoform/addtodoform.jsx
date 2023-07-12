@@ -49,7 +49,7 @@ function AddTodoForm() {
               className="checkbox-input"
             />
           </div>
-          <Button type="submit" variant="contained" color="primary" className="submit-button">
+          <Button type="submit" variant="contained" color="success" className="submit-button">
             Add
           </Button>
         </form>
